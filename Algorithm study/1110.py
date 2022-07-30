@@ -1,19 +1,15 @@
-n = input()
-result = 0
+n = int(input())
+m = n
 cnt = 0
 
-while cnt < 10:
-    for i in n:
-        result += int(i)
+while True:
+    a = m // 10
+    b = m % 10
+    c = (a + b) % 10
+    m = (b * 10) + c
 
-    n = n[len(n)-1] + str(result)[len(str(result))-1]
     cnt += 1
-
-    print(str(result), n)
-    if (str(result) == n):
+    if (n == m):
         break
-
-    result = 0
-    
 
 print(cnt)
