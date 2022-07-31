@@ -6,7 +6,6 @@ new_list = []
 num_max = num_list[0]
 
 for i in num_list:
-    print(i, type(i))
     if num_max < int(i):
         num_max = i
 
