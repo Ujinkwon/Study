@@ -19,11 +19,12 @@ num = input()
 
 
 list = []
-for i in range(n):
-    while list and k > 0 and list[-1] < num[i]:
-        list.pop()
-        k -= 1
-    list.append(num[i])
+for i in range(n): 
+    while list and k > 0 and list[-1] < num[i]:  
+        list.pop()   # 맨 뒷값 삭제
+        k -= 1       # 지워야하는 수 k 감소
 
-for i in list[:len(list) - k]:
+    list.append(num[i]) 
+
+for i in list:
     print(i, end='')
