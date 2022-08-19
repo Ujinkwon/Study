@@ -1,35 +1,40 @@
 def solution(numbers, hand):
     answer = ''
-    l, r = [1, 4, 7, 10], [3, 6, 9, 12]
     lpos, rpos = 10, 12
-    d = [-3, 3, -1, 1]
-    d2 = [-4, 4, -2, 2]
+    nums = [[1,2,3],[4,5,6],[7,8,9],[10,11,12]]
+
     for i in numbers:
-        if i in l:
+        if i == 0:
+            i = 11
+            
+        if i in [1, 4, 7, 10]:
             answer += 'L'
             lpos = i
-        elif i in r:
+        elif i in [3, 6, 9, 12]:
             answer += 'R'
             rpos = i
         else:
-            pos = []
-            if i == 0:
-                i = 11
-            for j in range(4):
-                dpos = i + d[j]
-                if 0 < dpos < 13:
-                    pos.append(dpos)
-                    
-            
-            if rpos in pos and lpos not in pos:
-                answer += 'R'
-                rpos = i
-            elif lpos in pos and rpos not in pos:
+            cnt_l, cnt_r = 0, 0
+            for j in range(len(nums)):
+                if lpos in nums[j]:
+                    xl = nums[j].index(lpos)
+                    yl = j
+                if rpos in nums[j]:
+                    xr = nums[j].index(rpos)
+                    yr = j
+                if i in nums[j]:
+                    x = nums[j].index(i)
+                    y = j
+            cnt_l = abs(x-xl) + abs(y-yl)
+            cnt_r = abs(x-xr) + abs(y-yr)
+
+            if cnt_l < cnt_r or (cnt_l == cnt_r and hand == 'left'):
                 answer += 'L'
                 lpos = i
+            elif cnt_l > cnt_r or (cnt_l == cnt_r and hand == 'right'):
+                answer += 'R'
+                rpos = i              
             
-
-        print(lpos, rpos, i)
     return answer
 
 print(solution([1, 3, 4, 5, 8, 2, 1, 4, 5, 9, 5], "right"))
