@@ -1,8 +1,9 @@
 student = int(input())
 nums = list(map(int, input().split()))
-line = [0] * student
+line = [1] * student
 
-for i in range(len(nums)):
-    for j in range(i):
-        line[j+1] = line[j]
-        print(line)
+for i in range(1, student):
+    for j in range(nums[i]):
+        line[i - j] = line[i-1 - j]
+    line[i-nums[i]] = i+1
+print(*line)
