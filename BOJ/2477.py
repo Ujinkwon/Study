@@ -1,3 +1,6 @@
+import sys
+sys.stdin = open('2477.txt')
+
 k = int(input())
 xmax, ymax = 0, 0
 stack = []
@@ -10,9 +13,8 @@ for i in range(6):
         if ymax < n:
             ymax = n
     stack.append(n)
-stack.index(xmax)
-stack.index(ymax)
-
+one = stack.index(xmax)
+two = stack.index(ymax)
 
 print(stack)
 print(k * ((xmax*ymax)))
