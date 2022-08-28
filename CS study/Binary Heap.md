@@ -1,6 +1,9 @@
 # 우선순위 큐 (Priority Queue)
+
 * 가장 우선순위가 높은 데이터부터 삭제
 * 배열, 연결리스트, 힙으로 구현 가능 => 힙이 가장 효율적
+
+
 
 # Binary Heap
 
@@ -21,8 +24,6 @@
 | root node = 가장 작은 값                                                                                                   | root node = 가장 큰 값                                                                                                    |
 | <img src="https://blog.kakaocdn.net/dn/Lulip/btq66t3mygU/XhwpPwIBf7gl580EV5cLa0/img.png" title="" alt="" width="273"> | <img src="https://blog.kakaocdn.net/dn/yXt2a/btq7ddSvksp/abjtbzX0kb5mbKWHgS84d1/img.png" title="" alt="" width="290"> |
 
-
-
 ## Heapify
 
 * 이진트리에서 힙 속성을 유지하는 작업
@@ -35,7 +36,7 @@
 def max_heapify(arr, i):
     left = 2 * i            # 노드 i의 왼쪽 자식 인덱스
     right = 2 * i + 1       # 노드 i의 오른쪽 자식 인덱스
-    
+
     if arr[left] > arr[rigt]:       # 자식 노드 중 max값
         max_child = left
     else:
@@ -50,14 +51,13 @@ arr = [0, 8, 15, 20, 5, 7, 13, 4]
 for i in range(1, len(arr)//2):
     max_heapify(arr, i)
 print(*arr[1:])
-
 ```
 
 ```python
 def min_heapify(arr, i):
     left = 2 * i            # 노드 i의 왼쪽 자식 인덱스
     right = 2 * i + 1       # 노드 i의 오른쪽 자식 인덱스
-    
+
     if arr[left] < arr[right]:       # 자식 노드 중 min값
         min_child = left
     else:
@@ -87,7 +87,6 @@ heapq.heappush(arr, 1)   # heap 요소 추가 'heappush'
 heapq.heappop(arr)       # heap 요소 삭제 'heappop'
 ```
 
-
 ## Extract
 
 * heap의 최대 요소를 추출하는 작업
@@ -113,14 +112,14 @@ print(root, arr[1:])
 ```
 
 * 내장 함수 사용
-```python
-import heapq   
-
-arr = [0, 8, 15, 20, 5, 7, 13, 4]
-heaparr = []
-for i in arr:
-    heapq.heappush(heaparr, -i)   # heapq가 기본적으로 min-priority-queue라서 => -20, -15, -13, -4, -5, -7, -8, 0
-
-for i in range(len(arr)):
-    print(-heapq.heappop(heaparr), end=' ')  # maxheap 용도로 사용 가능
-```
+  
+  ```python
+  import heapq   
+  arr = [0, 8, 15, 20, 5, 7, 13, 4]
+  heaparr = []
+  for i in arr:
+   heapq.heappush(heaparr, -i) # heapq가 기본적으로 min-priority-queue라서 => -20, -15, -13, -4, -5, -7, -8, 0
+  
+  for i in range(len(arr)):
+   print(-heapq.heappop(heaparr), end=' ') # maxheap 용도로 사용 가능
+  ```
