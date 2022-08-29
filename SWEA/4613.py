@@ -5,30 +5,19 @@ t = int(input())
 for tc in range(1, t+1):
     n, m = map(int, input().split())
     arr = [list(input()) for _ in range(n)]
-    cnt = [[] for _ in range(n)]
-    total = m-arr[0].count('W') + m-arr[n-1].count('R')
-    color = 'W'
+    min_value = n * m
 
-    for i in range(1, n-1):
-        if color == 'W':
-            if i != n-2:
-                if arr[i].count('W') > arr[i].count('B'):
-                    total += m - arr[i].count('W')
-                    color = 'W'
-                elif arr[i].count('W') <= arr[i].count('B'):
-                    total += m - arr[i].count('B')
-                    color = 'B'
-            else:
-                total += m - arr[i].count('B')
-                color = 'B'
+    cnt1 = 0
+    for i in range(n-2):
+        cnt1 += (m - arr[i].count('W'))
+        cnt2 = 0
+        for a in range(i+1, n-1):
+            cnt2 += (m - arr[a].count('B'))
+            cnt3 = 0
+            for p in range(a+1, n):
+                cnt3 += (m - arr[p].count('R'))
+            
+            if min_value > (cnt1+cnt2+cnt3):
+                min_value = (cnt1+cnt2+cnt3)
 
-        elif color == 'B':
-            if arr[i].count('B') > arr[i].count('R'):
-                total += m - arr[i].count('B')
-                color = 'B'
-            elif arr[i].count('B') <= arr[i].count('R'):
-                total += m - arr[i].count('R')
-                color = 'R'
-
-        print(color)
-    print(f'#{tc} {total}')
+    print(f'#{tc} {min_value}')

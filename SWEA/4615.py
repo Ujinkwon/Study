@@ -16,9 +16,26 @@ for tc in range(1, t+1):
         y, x = y-1, x-1
         board[y][x] = c
         for j in range(8):
-            if 0 <= x+dx[j] < n and 0 <= y+dy[j] < n and board[y+dy[j]][x+dx[j]] == 3-c:
-                board[y+dy[j]][x+dx[j]] = c
+            stack = []
+            nx, ny = x, y
+            while 1:
+                nx += dx[j]
+                ny += dy[j]
+                if 0 > nx or nx >= n or 0 > ny or ny >= n:
+                    stack.clear()
+                    break
+                elif board[ny][nx] == 0:
+                    stack.clear()
+                    break
+                elif board[ny][nx] == c:
+                    break
+                else:
+                    stack.append([nx,ny])
+            for k in stack:
+                board[k[1]][k[0]] = c
+    res = [0,0]
+    for i in range(n):
+        res[0] += (board[i].count(1))
+        res[1] += (board[i].count(2))
 
-        print(board)
-
-    print(f'#{tc}')
+    print(f'#{tc}', *res)
