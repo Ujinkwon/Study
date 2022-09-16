@@ -20,7 +20,7 @@ def year():
                     arr[i][j] = 0
                 k += 1
     return arr
-
+ 
 def bfs(i, j, n, m):
     q = [(i, j)]
     visited[i][j] = 1
