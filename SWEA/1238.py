@@ -5,7 +5,7 @@ def bfs(s):
     visited[s] = 1
     q = [s]
     while q:
-        v = q.pop()
+        v = q.pop(0)
         for i in arr[v]:
             if not visited[i]:
                 q.append(i)
@@ -17,9 +17,9 @@ for tc in range(1, 11):
     arr = [[] for _ in range(max(data)+1)]
     visited = [0 for _ in range(max(data)+1)]
     for i in range(0, l, 2):
-        arr[data[i]].append(data[i+1])
+        if data[i+1] not in arr[data[i]]:
+            arr[data[i]].append(data[i+1])
     bfs(s)
-    print(visited)
     z = max(visited)
     for i in range(max(data), -1, -1):
         if visited[i] == z:
