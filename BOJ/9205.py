@@ -1,10 +1,19 @@
 import sys
 sys.stdin = open('9205.txt')
-def num(n):
-    if n < 0:
-        return -n
-    else:
-        return n
+
+def bfs():
+    q = [[home[0], home[1]]]
+    while q:
+        x, y = q.pop(0)
+        if abs(x - festival[0]) + abs(y - festival[1]) <= 1000:
+            return 'happy'
+        for i in range(n):
+            if not visited[i]:
+                nx, ny = store[i]
+                if abs(x - nx) + abs(y - ny) <= 1000:
+                    q.append([nx, ny])
+                    visited[i] = 1
+    return 'sad'
 
 t = int(input())
 for tc in range(1, t+1):
@@ -12,21 +21,5 @@ for tc in range(1, t+1):
     home = list(map(int, input().split()))
     store = [list(map(int, input().split())) for _ in range(n)]
     festival = list(map(int, input().split()))
-
-    res = 'happy'
-
-    for i in range(n):
-        posx, posy = store[i][0], store[i][1]
-        distance = abs(num(home[0]) - num(posx)) + abs(num(home[1]) - num(posy))
-        if distance > 1000:
-            d = abs(num(festival[0]) - num(home[0])) + abs(num(festival[1]) - num(home[1]))
-            if d > 1000:
-                res = 'sad'
-            break
-        home[0], home[1] = posx, posy
-        
-    else:
-        distance = abs(num(festival[0]) - num(home[0])) + abs(num(festival[1]) - num(home[1]))
-        if distance > 1000:
-                res = 'sad'
-    print(res)
+    visited = [0 for _ in range(n+1)]
+    print(bfs())
