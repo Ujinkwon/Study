@@ -43,9 +43,7 @@
    * 4-way handshaking
      * 서로 통신을 위한 포트를 확인 후 연결하기 위해 4번의 요청&응답 후, 연결되는 것
 
-6. 
-
-7. UDP 보다 전송속도가 느리다.
+6. UDP 보다 전송속도가 느리다.
 
 # UDP (User Datagram Protocol)
 
