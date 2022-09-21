@@ -37,8 +37,15 @@ def ratio(nums):
     cnt = 1
     res = []
     bit = []
+    global arr
     for i in range(len(nums)-2, -1, -1):
-        if len(res) == 8:
+        if len(res) == 7 and len(bit) == 3:
+            l = (len(nums)-i-2)
+            while l > 0:
+                l = l-56
+            cnt = -l
+            print(i-l, nums[i-l])
+            arr = nums[i-l]
             break
         if len(bit)==4:
             n = GCD(bit)
@@ -86,6 +93,6 @@ for tc in range(1, t+1):
         for j in range(len(arr[0])-1, -1, -1):
             if arr[i][j] == '1':
                 test = arr[i][:j+1]
-                break
-    print(ratio(test))
+                print(test)
+                print(ratio(test))
     print(check)
