@@ -1,3 +1,6 @@
+import sys
+sys.stdin = open('2806.txt')
+
 def dfs(x):
     global cnt
     if x == n:
