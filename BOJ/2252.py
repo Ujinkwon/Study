@@ -15,7 +15,6 @@ for i in range(1, n+1):
     if indegree[i] == 0:  # indegree가 0인 정점들 q에 추가
         q.append(i)
 
-res = []
 while q:
     num = q.popleft()   # pop해서 출력하고
     print(num, end=' ')
