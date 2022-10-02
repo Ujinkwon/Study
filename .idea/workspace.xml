@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="728cf5fc-d6b2-42f2-8ee9-93f53157e16f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/SWEA/4008.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SWEA/4008.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BOJ/1368.py" beforeDir="false" afterPath="$PROJECT_DIR$/BOJ/1368.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SWEA/1795.py" beforeDir="false" afterPath="$PROJECT_DIR$/SWEA/1795.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SWEA/1795.txt" beforeDir="false" afterPath="$PROJECT_DIR$/SWEA/1795.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CS study/중기 스케줄러.md" beforeDir="false" afterPath="$PROJECT_DIR$/CS study/중기 스케줄러.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
