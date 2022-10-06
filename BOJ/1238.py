@@ -21,6 +21,7 @@ D = [10**6]*(n+1)
 for _ in range(m):
     s, e, w = map(int, input().split())
     adj[s].append([e, w])
+
 dijkstra(D, x)
 go = D
 max_value = 0

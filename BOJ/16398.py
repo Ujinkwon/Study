@@ -4,7 +4,12 @@ def find_set(x):
     return x
 
 def union(x, y):
-    p[find_set(y)] = find_set(x)
+    x = find_set(x)
+    y = find_set(y)
+    if x > y:
+        p[y] = x
+    else:
+        p[x] = y
 
 n = int(input())
 arr = [list(map(int, input().split())) for _ in range(n)]
