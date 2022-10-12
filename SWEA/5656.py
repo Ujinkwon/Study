@@ -34,16 +34,16 @@ def runs(q, arr):
                                 arr[ni][nj] = 0
         
     new_arr = [[]*w for _ in range(h)]
-    for i in range(h):
-        for j in range(w-1, -1, -1):
+    for i in range(w):
+        for j in range(h-1, -1, -1):
             if arr[j][i]:
                 new_arr[i].append(arr[j][i])
     for i in new_arr:
-        while len(i) != w:
+        while len(i) != h:
             i.append(0)
 
     # 시계방향 90도 회전
-    # new_arr = list(map(list, zip(*new_arr[::-1])))
+    # arr = list(map(list, zip(*new_arr[::-1])))
     # 반시계방향 90도 회전
     arr = list(map(list, zip(*new_arr)))[::-1]
     return arr
@@ -71,4 +71,4 @@ for tc in range(1, t+1):
                     if temp[p][q]:
                         cnt += 1
         res.append(cnt)
-    print(min(res))
+    print(f'#{tc} {min(res)}')
