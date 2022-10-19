@@ -18,26 +18,26 @@ def move(temp):
     for i in range(wind - 1, 0, -1):
         temp[i][0] = temp[i - 1][0]
     # 오 => 왼
-    for j in range(7):
+    for j in range(c-1):
         temp[0][j] = temp[0][j + 1]
     # 아래 => 위
     for i in range(wind):
-        temp[i][7] = temp[i + 1][7]
+        temp[i][c-1] = temp[i + 1][c-1]
     # 왼 => 오
-    for j in range(7, 0, -1):
+    for j in range(c-1, 0, -1):
         temp[wind][j] = temp[wind][j - 1]
 
     # 아래 => 위
-    for i in range(wind + 2, 6):
+    for i in range(wind + 2, r-1):
         temp[i][0] = temp[i + 1][0]
     # 오 => 왼
-    for j in range(7):
-        temp[6][j] = temp[6][j + 1]
+    for j in range(c-1):
+        temp[r-1][j] = temp[r-1][j + 1]
     # 위 => 아래
-    for i in range(6, wind + 1, -1):
-        temp[i][7] = temp[i - 1][7]
+    for i in range(r-1, wind + 1, -1):
+        temp[i][c-1] = temp[i - 1][c-1]
     # 왼 => 오
-    for j in range(7, 0, -1):
+    for j in range(c-1, 0, -1):
         temp[wind + 1][j] = temp[wind + 1][j - 1]
     return temp
 
