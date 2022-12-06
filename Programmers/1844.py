@@ -13,11 +13,10 @@ def solution(maps):
                 maps[dx][dy] = maps[x][y] + 1
                 q.append((dx, dy))
 
-    print(maps)
+    # print(maps)
     if maps[xl-1][yl-1] == 1:
         return -1
     return maps[xl-1][yl-1]
-
 
 
 print(solution([[1,0,1,1,1],[1,0,1,0,1],[1,0,1,1,1],[1,1,1,0,1],[0,0,0,0,1]]))
